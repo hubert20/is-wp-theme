@@ -1,0 +1,23 @@
+// LOAD BOOTSTRAP 5
+@import "~bootstrap/scss/bootstrap"; 
+
+// // TYPOGRAPHY
+@import "./scss/theme/typography.scss";
+
+// MY VARIABLES
+@import "./scss/theme/variables.scss";
+
+// GLOBAL & THEME
+@import "./scss/theme/global.scss";
+
+// PAGE TEMPLATES
+@import './scss/pages/mainpage.scss';
+
+// PAGE PRODUCT DETAILS
+@import './scss/pages/single-post-product-details.scss';
+
+// import Swiper styles
+@import 'swiper/swiper-bundle.css';
+
+// import Shop styles
+@import "./scss/theme/shop.scss";
