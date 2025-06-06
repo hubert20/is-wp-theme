@@ -15,7 +15,7 @@ $banner_img_mobile = get_field('banner_shop_mobile', 16);
 
 <?php
 while (have_posts()) : the_post();
-    the_content(__('Continue reading <span class="meta-nav">&rarr;</span>', 'mariolahairstylist-wp-theme'));
+    the_content(__('Continue reading <span class="meta-nav">&rarr;</span>', 'is-wp-theme'));
 endwhile;
 ?>
 

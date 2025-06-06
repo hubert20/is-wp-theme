@@ -40,7 +40,7 @@ $bg_header_image = get_field('background_product');
         <hr class="mb-3 mb-lg-4">
         <?php
         while (have_posts()) : the_post();
-            the_content(__('Continue reading <span class="meta-nav">&rarr;</span>', 'mariolahairstylist-wp-theme'));
+            the_content(__('Continue reading <span class="meta-nav">&rarr;</span>', 'is-wp-theme'));
         endwhile;
         ?>
     </div>

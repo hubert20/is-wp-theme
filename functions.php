@@ -3,7 +3,7 @@
 // ini_set('display_startup_errors', 1);
 // error_reporting(E_ALL);
 
-function wp_mariolahairstylist_scripts() {
+function wp_is_scripts() {
   $style_path = get_template_directory() . '/dist/style.css';
   $script_path = get_template_directory() . '/dist/main.bundle.js';
 
@@ -11,7 +11,7 @@ function wp_mariolahairstylist_scripts() {
   $script_ver = file_exists($script_path) ? filemtime($script_path) : null;
 
   wp_enqueue_style(
-      'wp-mariolahairstylist-css',
+      'wp-is-css',
       get_template_directory_uri() . '/dist/style.css',
       [],
       $style_ver,
@@ -28,14 +28,14 @@ function wp_mariolahairstylist_scripts() {
   wp_enqueue_script('jquery');
 
   wp_enqueue_script(
-      'wp-mariolahairstylist-js',
+      'wp-is-js',
       get_template_directory_uri() . '/dist/main.bundle.js',
       ['jquery'],
       $script_ver,
       true
   );
 }
-add_action('wp_enqueue_scripts', 'wp_mariolahairstylist_scripts');
+add_action('wp_enqueue_scripts', 'wp_is_scripts');
 
 
 /**
@@ -212,66 +212,66 @@ add_filter('show_admin_bar', '__return_false');
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 
-function wp_mariolahairstylist_widgets_init()
+function wp_is_widgets_init()
 {
   register_sidebar(array(
-    'name' => esc_html__('Top toolbar', 'mariolahairstylist-wp-theme'),
+    'name' => esc_html__('Top toolbar', 'is-wp-theme'),
     'id' => 'top-toolbar',
-    'description' => esc_html__('Add widgets here.', 'mariolahairstylist-wp-theme'),
+    'description' => esc_html__('Add widgets here.', 'is-wp-theme'),
     'before_widget' => '<div>',
     'after_widget' => '</div>',
   ));
   register_sidebar(array(
-    'name'          => esc_html__('Bottom menu services', 'mariolahairstylist-wp-theme'),
+    'name'          => esc_html__('Bottom menu services', 'is-wp-theme'),
     'id'            => 'menu-services',
-    'description'   => esc_html__('Add widgets here.', 'mariolahairstylist-wp-theme'),
+    'description'   => esc_html__('Add widgets here.', 'is-wp-theme'),
     'before_widget' => '<div id="%1$s" class="bottom-nav-menu widget %2$s">',
     'after_widget'  => '</div>',
     'before_title'  => '<h5 class="bottom-nav-menu__title mb-2 mb-lg-3 font-weight-bold">',
     'after_title'   => '</h5>',
   ));
   register_sidebar(array(
-    'name'          => esc_html__('Bottom menu about', 'mariolahairstylist-wp-theme'),
+    'name'          => esc_html__('Bottom menu about', 'is-wp-theme'),
     'id'            => 'menu-about',
-    'description'   => esc_html__('Add widgets here.', 'mariolahairstylist-wp-theme'),
+    'description'   => esc_html__('Add widgets here.', 'is-wp-theme'),
     'before_widget' => '<div id="%1$s" class="bottom-nav-menu widget %2$s">',
     'after_widget'  => '</div>',
     'before_title'  => '<h5 class="bottom-nav-menu__title mb-2 mb-lg-3 font-weight-bold">',
     'after_title'   => '</h5>',
   ));
   register_sidebar(array(
-    'name'          => esc_html__('Footer start', 'mariolahairstylist-wp-theme'),
+    'name'          => esc_html__('Footer start', 'is-wp-theme'),
     'id'            => 'footer-start',
-    'description'   => esc_html__('Add widgets here.', 'mariolahairstylist-wp-theme'),
+    'description'   => esc_html__('Add widgets here.', 'is-wp-theme'),
     'before_widget' => '<div id="%1$s" class=" widget %2$s">',
     'after_widget'  => '</div>',
     'before_title'  => '<h5 class="bottom-nav-menu__title mb-2 mb-lg-3 font-weight-bold">',
     'after_title'   => '</h5>',
   ));
   register_sidebar(array(
-    'name'          => esc_html__('Filter cats', 'mariolahairstylist-wp-theme'),
+    'name'          => esc_html__('Filter cats', 'is-wp-theme'),
     'id'            => 'filter-cats',
-    'description'   => esc_html__('Add widgets here.', 'mariolahairstylist-wp-theme'),
+    'description'   => esc_html__('Add widgets here.', 'is-wp-theme'),
     'before_widget' => '<div>',
     'after_widget' => '</div>',
   ));
   register_sidebar(array(
-    'name'          => esc_html__('Float btn', 'mariolahairstylist-wp-theme'),
+    'name'          => esc_html__('Float btn', 'is-wp-theme'),
     'id'            => 'float-btn',
-    'description'   => esc_html__('Add widgets here.', 'mariolahairstylist-wp-theme'),
+    'description'   => esc_html__('Add widgets here.', 'is-wp-theme'),
     'before_widget' => '<div>',
     'after_widget' => '</div>',
   ));
   register_sidebar(array(
-    'name'          => esc_html__('Left sidebar', 'mariolahairstylist-wp-theme'),
+    'name'          => esc_html__('Left sidebar', 'is-wp-theme'),
     'id'            => 'left-sidebar',
-    'description'   => esc_html__('Add widgets here.', 'mariolahairstylist-wp-theme'),
+    'description'   => esc_html__('Add widgets here.', 'is-wp-theme'),
     'before_widget' => '<div id="%1$s" class=" widget %2$s">',
     'after_widget'  => '</div>',
   ));
 }
 
-add_action('widgets_init', 'wp_mariolahairstylist_widgets_init');
+add_action('widgets_init', 'wp_is_widgets_init');
 add_filter('widget_text', 'do_shortcode');
 
 // Remove <p> in block Contact form 7

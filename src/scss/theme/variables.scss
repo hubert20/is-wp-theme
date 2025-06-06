@@ -2,19 +2,19 @@
 // #Colors
 // ------------------------------------ //
 
-$pink: #ffdef3;
-$pink-strong: #d0006f;
+$szp-red: #e21f26;
+$dark-blue: #15175c;
 
 // Definiowanie nazw jako stringów
 $names: (
-    "pink",
-    "pink-strong",
+    "szp-red",
+    "dark-blue",
 );
 
 // Mapowanie nazw na kolory
 $colors: (
-    "pink": $pink,
-    "pink-strong": $pink-strong,
+    "szp-red": $szp-red,
+    "dark-blue": $dark-blue,
 );
 
 @each $name in $names {

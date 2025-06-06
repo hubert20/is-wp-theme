@@ -25,12 +25,12 @@ $bg_header_image = get_field('background_image');
 </section>
 
 <section class="py-4 py-lg-5 about-wrap bg-white position-relative mb-4">
-    <img src="https://mariolahairstylist.com/wp-content/uploads/2025/03/rose-gray.png" class="rose-about rose-about--1">
-    <img src="https://mariolahairstylist.com/wp-content/uploads/2025/03/rose-gray.png" class="rose-about rose-about--2">
+    <img src="https://is.com/wp-content/uploads/2025/03/rose-gray.png" class="rose-about rose-about--1">
+    <img src="https://is.com/wp-content/uploads/2025/03/rose-gray.png" class="rose-about rose-about--2">
 
     <?php
     while (have_posts()) : the_post();
-        the_content(__('Continue reading <span class="meta-nav">&rarr;</span>', 'mariolahairstylist-wp-theme'));
+        the_content(__('Continue reading <span class="meta-nav">&rarr;</span>', 'is-wp-theme'));
     endwhile;
     ?>
 </section>
@@ -46,7 +46,7 @@ $bg_header_image = get_field('background_image');
         <h2 class="text-center mb-3 mb-lg-4 standard-title-4 text-white lobster-font">
             <span class="d-inline-block icon-text px-4">Newsletter</span>
             <div class="text-center">
-                <img src="http://mariolahairstylist.com/wp-content/uploads/2025/03/rose-separator.png" class="" alt="">
+                <img src="http://is.com/wp-content/uploads/2025/03/rose-separator.png" class="" alt="">
             </div>
         </h2>
         <p class="text-center text-white mb-3 mb-lg-4">
