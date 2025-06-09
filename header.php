@@ -19,52 +19,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <?php wp_head(); ?>
-    <!-- MailerLite Universal -->
-    <script>
-        (function(w, d, e, u, f, l, n) {
-            w[f] = w[f] || function() {
-                    (w[f].q = w[f].q || [])
-                    .push(arguments);
-                }, l = d.createElement(e), l.async = 1, l.src = u,
-                n = d.getElementsByTagName(e)[0], n.parentNode.insertBefore(l, n);
-        })
-        (window, document, 'script', 'https://assets.mailerlite.com/js/universal.js', 'ml');
-        ml('account', '1456878');
-    </script>
-    <!-- End MailerLite Universal -->
 </head>
 
 <body <?php body_class(); ?>>
     <header id="top-header" class="fixed-lg-top bg-white" role="banner">
-        <!-- Top Toolbar -->
-        <div class="toolbar-area d-none d-lg-block px-xl-4">
-            <?php if (is_active_sidebar('top-toolbar')) : ?>
+        <?php if (is_active_sidebar('top-toolbar')) : ?>
+            <!-- Top Toolbar -->
+            <div class="toolbar-area d-none d-lg-block px-xl-4">
                 <?php dynamic_sidebar('top-toolbar'); ?>
-            <?php endif; ?>
-        </div>
-        <!-- Top center Logo -->
-        <div class="top-logo text-center py-4 container-fluid d-none d-lg-block">
-            <div class="row justify-content-center">
-                <div class="col-lg-5">
-                    <div class="row justify-content-center">
-                        <?php if (get_theme_mod('is_wp_theme_logo')) : ?>
-                            <div class="col-lg-3">
-                                <a href="<?php echo esc_url(home_url('/')); ?>" title="<?php echo esc_attr(get_bloginfo('name')); ?>" class="d-none d-lg-block">
-                                    <img src="<?php echo esc_url(str_replace('http://', 'https://', get_theme_mod('is_wp_theme_logo'))); ?>" alt="<?php echo esc_attr(get_bloginfo('name')); ?>" class="img-fluid">
-                                </a>
-                            </div>
-                        <?php else : ?>
-                            <div class="col-lg-6">
-                                <a href="<?php echo esc_url(home_url('/')); ?>" title="" class="d-none d-lg-block">
-                                    <span class="standard-title-6 playfair-display-900 top-logo--pink text-pink-strong">Strefa Twojej urody</span>
-                                    <span class="standard-title-6 playfair-display-600 fst-italic text-dark top-logo--dark text-dark">Mariola Widlak</span>
-                                </a>
-                            </div>
-                        <?php endif; ?>
-                    </div>
-                </div>
             </div>
-        </div>
+        <?php endif; ?>
         <!-- Top header -->
         <div class="top-header-menu">
             <div class="container px-xl-4">

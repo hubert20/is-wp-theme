@@ -1,10 +1,8 @@
 <?php
 $banner_cnt = get_field('banner_cnt');
-$banner_grafika = get_field('banner_grafika');
+$bg_hero = get_field('bg_hero');
 ?>
 
-<div class="px-lg-5">
-    <div class="container-fluid text-center hero_wrap position-relative" style="background-image: url('<?php echo $banner_grafika; ?>')">
-        <?php echo $banner_cnt; ?>
-    </div>
+<div class="container-fluid text-center hero_wrap position-relative" style="background-image: url('<?php echo $bg_hero; ?>')">
+    <?php echo $banner_cnt; ?>
 </div>
