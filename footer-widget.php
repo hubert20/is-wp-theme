@@ -1,41 +1,15 @@
-<!-- Footer -->
-<section class="footer-widgets">
-    <div class="container py-4 py-lg-5">
-        <div class="row justify-content-center">
-            <div class="col-8 col-lg-3 text-center">
-                <img src="https://is.com/wp-content/uploads/2025/03/rose.png" class="img-fluid mb-4 mb-lg-5 mx-auto">
-            </div>
-        </div>
-        <div class="footer-widgets__logo mb-4 mb-lg-5"></div>
-        <div class="row justify-content-center">
-            <div class="col-lg-4 footer-widgets__bottom-desc pe-lg-5 mb-4 mb-lg-0">
-                <?php if (is_active_sidebar('menu-about')) : ?>
-                    <?php dynamic_sidebar('menu-about'); ?>
-                <?php endif; ?>
-            </div>
-            <div class="col-lg-3 footer-widgets__bottom-desc mb-4 mb-lg-0">
-                <?php if (is_active_sidebar('footer-start')) : ?>
-                    <?php dynamic_sidebar('footer-start'); ?>
-                <?php endif; ?>
-            </div>
-            <div class="col-lg-3">
-                <h5 class="text-yellow standard-title-6 mb-2 mb-lg-4 text-rose lobster-font">Informacje</h5>
-                <?php if (is_active_sidebar('menu-services')) : ?>
-                    <?php dynamic_sidebar('menu-services'); ?>
-                <?php endif; ?>
-            </div>
-        </div>
-    </div>
-</section>
 <div class="copyright-box">
     <div class="container py-4">
-        <p class="text-center text-gray-light mb-0"><small>is Copyright 2025</small></p>
+        <div class="text-center">
+            <a href="https://www.wiosna.org.pl/regulamin-serwisu/" title="Regulamin" target="_blank" rel="noopener">Regulamin</a>
+            <a href="https://www.wiosna.org.pl/polityka-prywatnosci/" title="Polityka prywatności" target="_blank" rel="noopener">Polityka prywatności</a>
+            <a class="text-dark" href="javascript:CookieConsent.getScript('https://consent.cookiebot.com/Scripts/widget.min.js', !1)" title="Ustawienia plików cookie">Ustawienia plików cookie</a>
+            Stowarzyszenie WIOSNA Copyright 2009-2025
+        </div>
     </div>
 </div>
 
 <!-- Float btn -->
-<div class="float-btn">
-
-
-
-</div>
+<?php if (is_active_sidebar('float-btn')) : ?>
+    <?php dynamic_sidebar('float-btn'); ?>
+<?php endif; ?>

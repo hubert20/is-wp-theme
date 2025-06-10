@@ -1,27 +1,31 @@
-// Main hero
-.top-hero {
+// Hero image with content
+.hero_wrap {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+
     @include media-breakpoint-up(lg) {
-        min-height: 70vh;
+        height: 100vh;
     }
 }
 
-.form-control::placeholder {
-    /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: #333;
-    opacity: 1;
-    /* Firefox */
-}
+// logo 
+.logo-desktop {
+    position: absolute;
+    transform: translateY(-50%);
+    &--left {
+        left: 0;
+        top: 50%;
+    }
 
-.form-control:-ms-input-placeholder {
-    /* Internet Explorer 10-11 */
-    color: #333;
+    &--right {
+        right: 0;
+        top: 50%;
+    }
+    img {
+        width: 20vh;
+    }
 }
-
-.form-control::-ms-input-placeholder {
-    /* Microsoft Edge */
-    color: #333;
-}
-
 
 //Swiper arrows
 .swiper-main-products {
@@ -47,16 +51,5 @@
             color: #c5c5c5;
             transform: rotate(-45deg);
         }
-    }
-}
-
-// Hero image with content
-.hero_wrap {
-    background-color: $pink;
-    overflow: hidden;
-    background-size: cover;
-    background-position: center;
-    @include media-breakpoint-up(lg) {
-        height: 100vh;
     }
 }

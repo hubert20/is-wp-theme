@@ -222,24 +222,6 @@ function wp_is_widgets_init()
     'after_widget' => '</div>',
   ));
   register_sidebar(array(
-    'name'          => esc_html__('Bottom menu services', 'is-wp-theme'),
-    'id'            => 'menu-services',
-    'description'   => esc_html__('Add widgets here.', 'is-wp-theme'),
-    'before_widget' => '<div id="%1$s" class="bottom-nav-menu widget %2$s">',
-    'after_widget'  => '</div>',
-    'before_title'  => '<h5 class="bottom-nav-menu__title mb-2 mb-lg-3 font-weight-bold">',
-    'after_title'   => '</h5>',
-  ));
-  register_sidebar(array(
-    'name'          => esc_html__('Bottom menu about', 'is-wp-theme'),
-    'id'            => 'menu-about',
-    'description'   => esc_html__('Add widgets here.', 'is-wp-theme'),
-    'before_widget' => '<div id="%1$s" class="bottom-nav-menu widget %2$s">',
-    'after_widget'  => '</div>',
-    'before_title'  => '<h5 class="bottom-nav-menu__title mb-2 mb-lg-3 font-weight-bold">',
-    'after_title'   => '</h5>',
-  ));
-  register_sidebar(array(
     'name'          => esc_html__('Footer start', 'is-wp-theme'),
     'id'            => 'footer-start',
     'description'   => esc_html__('Add widgets here.', 'is-wp-theme'),
@@ -247,13 +229,6 @@ function wp_is_widgets_init()
     'after_widget'  => '</div>',
     'before_title'  => '<h5 class="bottom-nav-menu__title mb-2 mb-lg-3 font-weight-bold">',
     'after_title'   => '</h5>',
-  ));
-  register_sidebar(array(
-    'name'          => esc_html__('Filter cats', 'is-wp-theme'),
-    'id'            => 'filter-cats',
-    'description'   => esc_html__('Add widgets here.', 'is-wp-theme'),
-    'before_widget' => '<div>',
-    'after_widget' => '</div>',
   ));
   register_sidebar(array(
     'name'          => esc_html__('Float btn', 'is-wp-theme'),
@@ -277,42 +252,6 @@ add_filter('widget_text', 'do_shortcode');
 // Remove <p> in block Contact form 7
 add_filter('wpcf7_autop_or_not', '__return_false');
 
-// add_filter('single_template', function ($single) {
-//   global $post;
-
-//   if (!$post) {
-//     return $single;
-//   }
-
-//   $templates = [
-//     'szafy-przesuwne' => 'single-product-details.php',
-//     'aktualnosci' => 'single-news.php',
-//   ];
-
-//   foreach ($templates as $category => $template) {
-//     if (in_category($category, $post)) {
-//       $template_path = locate_template($template);
-//       if ($template_path) {
-//         return $template_path;
-//       }
-//     }
-//   }
-
-//   return $single;
-// });
-
-function mytheme_add_woocommerce_support()
-{
-  add_theme_support('woocommerce');
-
-  //Opcjonalne dodatkowe wsparcie, np. dla miniatur produktów, galerii itp.
-  add_theme_support('wc-product-gallery-zoom');
-  add_theme_support('wc-product-gallery-lightbox');
-  add_theme_support('wc-product-gallery-slider');
-}
-
-add_action('after_setup_theme', 'mytheme_add_woocommerce_support');
-
 add_filter('wpseo_breadcrumb_links', 'custom_remove_category_base_from_breadcrumbs');
 
 function custom_remove_category_base_from_breadcrumbs($links)
@@ -330,13 +269,6 @@ function custom_remove_category_base_from_breadcrumbs($links)
 //   global $template;
 //   echo '<!-- Aktualnie Używany szablon do: ' . basename($template) . ' -->';
 // });
-
-// Remove standard sorting before shoop loop
-function remove_woocommerce_default_sorting()
-{
-  remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);
-}
-add_action('init', 'remove_woocommerce_default_sorting');
 
 /**
  * Add defer attribute to specific enqueued scripts

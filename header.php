@@ -22,22 +22,21 @@
 </head>
 
 <body <?php body_class(); ?>>
-    <header id="top-header" class="fixed-lg-top bg-white" role="banner">
-        <?php if (is_active_sidebar('top-toolbar')) : ?>
-            <!-- Top Toolbar -->
-            <div class="toolbar-area d-none d-lg-block px-xl-4">
-                <?php dynamic_sidebar('top-toolbar'); ?>
-            </div>
-        <?php endif; ?>
+    <header id="top-header" class="fixed-lg-top" role="banner">
         <!-- Top header -->
         <div class="top-header-menu">
             <div class="container px-xl-4">
-                <nav class="navbar navbar-expand-xl navbar-theme chakra-petch-font py-lg-0">
-                    <?php if (get_theme_mod('is_wp_theme_logo')) : ?>
-                        <a href="<?php echo esc_url(home_url('/')); ?>" title="<?php echo esc_attr(get_bloginfo('name')); ?>" class="navbar-brand align-items-center top-logo flex-column d-block d-lg-none">
-                            <img src="<?php echo esc_url(str_replace('http://', 'https://', get_theme_mod('is_wp_theme_logo'))); ?>" alt="<?php echo esc_attr(get_bloginfo('name')); ?>">
-                        </a>
-                    <?php endif; ?>
+                <nav class="navbar navbar-expand-xl navbar-theme py-lg-0 justify-content-end justify-content-xl-center">
+                    <!-- Left logo -->
+                    <a href="<?php echo esc_url(home_url('/')); ?>" class="navbar-brand top-logo top-logo--szp d-block d-lg-none p-0">
+                        <img src="<?php echo esc_url(str_replace('http://', 'https://', get_theme_mod('is_wp_theme_logo_left'))); ?>" alt="">
+                    </a>
+
+                    <!-- Right logo -->
+                    <a href="<?php echo esc_url(home_url('/')); ?>" class="navbar-brand top-logo top-logo--ap d-block d-lg-none p-0">
+                        <img src="<?php echo esc_url(str_replace('http://', 'https://', get_theme_mod('is_wp_theme_logo_right'))); ?>" alt="">
+                    </a>
+
                     <button class="navbar-toggler rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>

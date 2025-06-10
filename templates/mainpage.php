@@ -5,13 +5,15 @@ if (!defined('ABSPATH')) exit;
 
 get_header();
 
+$contact_cnt = get_field('contact_cnt');
+
 ?>
 
 <!-- Main hero -->
 <?php get_template_part('template-parts/main-hero'); ?>
 
-<!-- Main about -->
-<?php get_template_part('template-parts/main-about'); ?>
+
+<?php echo wp_kses_post($contact_cnt); ?>
 
 <?php
 while (have_posts()) : the_post();

@@ -30,7 +30,6 @@ body {
   }
 }
 
-//Heading h1-h6 with Playfair font
 //Title big 105px-50px
 //h1 80px-40px
 @media (min-width: 360px) {
@@ -128,6 +127,20 @@ body {
     font-size: 30px;
   }
 }
+
+// 7 26px - 20px
+@media (min-width: 364px) {
+  .standard-title-7 {
+    font-size: calc(1.25rem + ((1vw - 3.64px) * 0.3856));
+    min-height: 0vw;
+  }
+}
+@media (min-width: 1920px) {
+  .standard-title-7 {
+    font-size: 26px;
+  }
+}
+
 
 a {
   text-decoration: none;
