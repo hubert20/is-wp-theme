@@ -215,34 +215,11 @@ add_filter('show_admin_bar', '__return_false');
 function wp_is_widgets_init()
 {
   register_sidebar(array(
-    'name' => esc_html__('Top toolbar', 'is-wp-theme'),
-    'id' => 'top-toolbar',
-    'description' => esc_html__('Add widgets here.', 'is-wp-theme'),
-    'before_widget' => '<div>',
-    'after_widget' => '</div>',
-  ));
-  register_sidebar(array(
-    'name'          => esc_html__('Footer start', 'is-wp-theme'),
-    'id'            => 'footer-start',
-    'description'   => esc_html__('Add widgets here.', 'is-wp-theme'),
-    'before_widget' => '<div id="%1$s" class=" widget %2$s">',
-    'after_widget'  => '</div>',
-    'before_title'  => '<h5 class="bottom-nav-menu__title mb-2 mb-lg-3 font-weight-bold">',
-    'after_title'   => '</h5>',
-  ));
-  register_sidebar(array(
     'name'          => esc_html__('Float btn', 'is-wp-theme'),
     'id'            => 'float-btn',
     'description'   => esc_html__('Add widgets here.', 'is-wp-theme'),
     'before_widget' => '<div>',
     'after_widget' => '</div>',
-  ));
-  register_sidebar(array(
-    'name'          => esc_html__('Left sidebar', 'is-wp-theme'),
-    'id'            => 'left-sidebar',
-    'description'   => esc_html__('Add widgets here.', 'is-wp-theme'),
-    'before_widget' => '<div id="%1$s" class=" widget %2$s">',
-    'after_widget'  => '</div>',
   ));
 }
 
