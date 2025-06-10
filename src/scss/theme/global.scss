@@ -258,6 +258,16 @@
     width: 100%;
 }
 
+.page-template-templates .wpcf7-not-valid-tip, 
+.page-template-templates .title-field-form {
+    font-size: 13px;
+}
+
+.form-border {
+    border: 1px solid rgba(0,0,0, .1);
+    border-radius: 12px;
+}
+
 // Float btn
 .right-float-box {
     position: fixed;

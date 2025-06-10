@@ -19,11 +19,12 @@ get_header();
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6">
-                <?php echo apply_shortcodes('[contact-form-7 id="f9415db" title="Formularz 1"]'); ?>
+                <div class="p-3 p-lg-4 form-border">
+                    <?php echo apply_shortcodes('[contact-form-7 id="f9415db" title="Formularz 1"]'); ?>
+                </div>
             </div>
         </div>
     </div>
 </section>
-
 
 <?php get_footer(); ?>
