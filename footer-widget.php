@@ -10,6 +10,6 @@
 </div>
 
 <!-- Float btn -->
-<?php if (is_active_sidebar('float-btn')) : ?>
+<?php if (is_active_sidebar('float-btn') && !is_page('formularz')) : ?>
     <?php dynamic_sidebar('float-btn'); ?>
 <?php endif; ?>

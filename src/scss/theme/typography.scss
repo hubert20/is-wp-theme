@@ -17,7 +17,6 @@ $font-primary: "Poppins", sans-serif;
   }
 }
 
-
 html,
 body {
   background: white;
@@ -129,9 +128,9 @@ body {
 }
 
 // 7 26px - 20px
-@media (min-width: 364px) {
+@media (min-width: 360px) {
   .standard-title-7 {
-    font-size: calc(1.25rem + ((1vw - 3.64px) * 0.3856));
+    font-size: calc(1.25rem + ((1vw - 3.6px) * 0.3846));
     min-height: 0vw;
   }
 }
@@ -141,6 +140,18 @@ body {
   }
 }
 
+// 8 22px - 20px
+@media (min-width: 360px) {
+  .standard-title-8 {
+    font-size: calc(1.25rem + ((1vw - 3.6px) * 0.1282));
+    min-height: 0vw;
+  }
+}
+@media (min-width: 1920px) {
+  .standard-title-8 {
+    font-size: 22px;
+  }
+}
 
 a {
   text-decoration: none;
