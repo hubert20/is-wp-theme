@@ -63,7 +63,7 @@ $bg_hero = get_field('bg_hero');
 				</div>
 			</div>
 		</div>
-		<p id="wybraneWojewodztwo" class="text-transform text-szp-red text-center fw-bold standard-title-6">Wszystkie województwa</p>
+		<p id="wybraneWojewodztwo" class="text-transform text-szp-red text-center fw-bold standard-title-8">Wszystkie województwa</p>
 
 		<!-- Firmy -->
 		<div class="firmy overflow-hidden">
@@ -81,29 +81,33 @@ $bg_hero = get_field('bg_hero');
 						$wojewodztwo = get_sub_field('wojewodztwo');
 					?>
 						<li id="projekt-<?php echo $counter_val; ?>" class="firma mb-3 bg-white p-4" data-projekt="<?php echo esc_attr($wspierany_projekt['value']); ?>" data-wojewodztwo="<?php echo $wojewodztwo; ?>">
-							<div class="row mb-2 align-items-center justify-content-center">
-								<div class="col-5 col-sm-2 align-self-center order-2 order-lg-2 text-center">
-									<div class="row justify-content-center">
-										<div class="col-sm-10 text-center">
+							<div class="row mb-3 align-items-center justify-content-center">
+								<div class="col-5 col-sm-6 text-center">
+									<div class="row justify-content-center justify-content-lg-end">
+										<div class="col-sm-4 text-center">
 											<?php echo wp_get_attachment_image($img['ID'], 'medium', false, ['alt' => $nazwa_inwestora, 'class' => 'img-fluid mb-3 mb-lg-0']); ?>
 										</div>
 									</div>
 								</div>
-								<div class="col-sm-3 order-1 order-lg-1 text-center">
-									<p class="text-dark-blue mb-0 fw-bold standard-title-8 lh-13">
-										<?php echo $nazwa_inwestora; ?>
-									</p>
-									<p class="text-dark-blue">
-										<a href="<?php echo $strona_www_inwestora; ?>" class="blue" target="_blank" rel="noopener noreferrer">
-											<?php echo $strona_www_inwestora; ?>
-										</a>
-									</p>
-								</div>
-								<div class="col-sm-3 order-3 order-lg-3 text-center">
-									<?php if ($rejon_lub_miasto) : ?>
-										<p class="text-dark-blue mb-0 fw-bold standard-title-8 lh-13"><?php echo $rejon_lub_miasto; ?></p>
-									<?php endif; ?>
-									<p class="text-dark-blue"><small><?php echo esc_attr($wspierany_projekt['label']); ?></small></p>
+								<div class="col-sm-6">
+									<div class="row">
+										<div class="col-sm-10 ps-lg-4">
+											<p class="text-dark-blue mb-0 fw-bold standard-title-8 lh-13">
+												<?php echo $nazwa_inwestora; ?>
+											</p>
+											<p class="text-dark-blue">
+												<a href="<?php echo $strona_www_inwestora; ?>" class="blue" target="_blank" rel="noopener noreferrer">
+													<?php echo $strona_www_inwestora; ?>
+												</a>
+											</p>
+										</div>
+										<div class="col-sm-10 ps-lg-4">
+											<?php if ($rejon_lub_miasto) : ?>
+												<p class="text-dark-blue mb-0 fw-bold lh-13"><?php echo $rejon_lub_miasto; ?></p>
+											<?php endif; ?>
+											<p class="text-dark-blue mb-0"><small><?php echo esc_attr($wspierany_projekt['label']); ?></small></p>
+										</div>
+									</div>
 								</div>
 							</div>
 							<?php echo $opis_inwestora; ?>
