@@ -4,17 +4,20 @@
 
 $szp-red: #e21f26;
 $dark-blue: #15175c;
+$gray-light: #f2f2f2;
 
 // Definiowanie nazw jako stringów
 $names: (
     "szp-red",
     "dark-blue",
+    "gray-light",
 );
 
 // Mapowanie nazw na kolory
 $colors: (
     "szp-red": $szp-red,
     "dark-blue": $dark-blue,
+    "gray-light": $gray-light,
 );
 
 @each $name in $names {
@@ -47,4 +50,30 @@ $colors: (
     -webkit-box-decoration-break: split;
     box-decoration-break: split;
     display: inline;
+}
+
+//Btn
+.btn-dark-blue {
+    background-color: $dark-blue;
+    color: #fff;
+
+    &:hover,
+    &:focus {
+        background-color: #fff;
+        color: $dark-blue;
+    }
+}
+.btn-red-szp {
+    background-color: $szp-red;
+    color: #fff;
+
+    &:hover,
+    &:focus {
+        background-color: #fff;
+        color: $szp-red;
+    }
+}
+
+.btn-radius-more {
+    border-radius: 35px;
 }

@@ -11,7 +11,8 @@
 
 //Header fixed after lg size
 .home,
-.page-template-template-inwestorzy {
+.page-template-template-inwestorzy,
+.page-template-template-projects {
     #top-header {
         @include media-breakpoint-up(xl) {
             position: fixed;
