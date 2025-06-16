@@ -242,11 +242,6 @@ function custom_remove_category_base_from_breadcrumbs($links)
   return $links;
 }
 
-// add_action('wp_head', function() {
-//   global $template;
-//   echo '<!-- Aktualnie Używany szablon do: ' . basename($template) . ' -->';
-// });
-
 /**
  * Add defer attribute to specific enqueued scripts
  */

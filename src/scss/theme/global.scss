@@ -60,7 +60,6 @@
                             content: '';
                             height: 49%;
                             width: 100%;
-                            // width: 0;
                             position: absolute;
                             left: 0;
                             top: 50%;
@@ -68,7 +67,6 @@
                             transition: 0.3s ease-in-out;
                             z-index: -1;
                             transform: translateY(-50%);
-                            // transform: translateY(-50%) skew(-23deg, 0deg);
                         }
                     }
                 }
@@ -77,14 +75,6 @@
                 margin: 0 10px;
                 font-size: 1.1rem;
                 text-align: center;
-
-                // &:hover {
-                //     color: #343434;
-
-                //     &:before {
-                //         width: 100%;
-                //     }
-                // }
 
                 &.active {
                     color: $szp-red;
@@ -127,7 +117,6 @@
         .dropdown-submenu {
             top: 0;
             left: 100%;
-            //margin-left: 0.125rem;
             margin-top: 0;
         }
     }
