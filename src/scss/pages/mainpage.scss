@@ -81,9 +81,23 @@
 
 // List style 
 .main-number-style-list {
+    &.list-sm {
+        li {
+            padding-left: 50px;
+
+            @include media-breakpoint-up(xl) {
+                padding-left: 55px;
+            }
+
+            &:before {
+                font-size: 45px;
+            }
+        }
+    }
+
     li {
         position: relative;
-        padding-left: 55px;
+        padding-left: 50px;
         padding-bottom: 25px;
         font-size: 17px;
         line-height: 1.3;
@@ -161,8 +175,8 @@
         position: absolute;
         left: 0;
         bottom: 2px;
-        height: 15px;
-        width: 60px;
+        height: 10px;
+        width: 50px;
         background-color: #15175c;
         opacity: .3;
         border-radius: 25px;

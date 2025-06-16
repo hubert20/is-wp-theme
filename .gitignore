@@ -1,3 +1,2 @@
 dist/*
-!dist/style.css
 node_modules
