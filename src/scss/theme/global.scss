@@ -114,6 +114,12 @@
             box-shadow: none;
         }
     }
+
+    @include media-breakpoint-up(xl) {
+        &.sticky {
+            background-color: rgba(226, 31, 38, .7);
+        }
+    }
 }
 
 @include media-breakpoint-up(xl) {

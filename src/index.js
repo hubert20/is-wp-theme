@@ -1,12 +1,29 @@
 require("bootstrap");
+import Swiper from "swiper"
+import { Navigation } from 'swiper/modules'
 (function () {
-  // Add data-toggle to link menu
-  // var menuItem = document.querySelector('#menu-item-194 a');
-  // if (menuItem) {
-  //   menuItem.setAttribute('data-bs-toggle', 'modal');
-  //   menuItem.setAttribute('data-bs-target', '#offerformModal');
-  //   menuItem.setAttribute('data-category', 'form-basic');
-  // }
+  // SWiper slider
+  var swiper = new Swiper(".swiper-container", {
+    modules: [Navigation],
+    speed: 400,
+    autoplay: true,
+    loop: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+  //Sticky menu
+  window.addEventListener('scroll', (event) => {
+    var btnscroll = document.querySelector('#top-header');
+    var scrollValue = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollValue > 0) {
+      btnscroll.classList.add("sticky");
+    } else {
+      btnscroll.classList.remove("sticky");
+    }
+  });
+
 
   document.addEventListener("DOMContentLoaded", function () {
     const projektSelect = document.getElementById('projektSelect');
