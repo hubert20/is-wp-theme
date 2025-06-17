@@ -1,6 +1,7 @@
 require("bootstrap");
-import Swiper from "swiper"
-import { Navigation } from 'swiper/modules'
+import Swiper from "swiper";
+import { Navigation } from 'swiper/modules';
+
 (function () {
   // SWiper slider
   var swiper = new Swiper(".swiper-container", {
@@ -13,17 +14,19 @@ import { Navigation } from 'swiper/modules'
       prevEl: ".swiper-button-prev",
     },
   });
-  //Sticky menu
-  window.addEventListener('scroll', (event) => {
+
+  // Sticky menu
+  window.addEventListener('scroll', () => {
     var btnscroll = document.querySelector('#top-header');
     var scrollValue = window.pageYOffset || document.documentElement.scrollTop;
-    if (scrollValue > 0) {
-      btnscroll.classList.add("sticky");
-    } else {
-      btnscroll.classList.remove("sticky");
+    if (btnscroll) {  // dodajemy sprawdzenie istnienia
+      if (scrollValue > 0) {
+        btnscroll.classList.add("sticky");
+      } else {
+        btnscroll.classList.remove("sticky");
+      }
     }
   });
-
 
   document.addEventListener("DOMContentLoaded", function () {
     const projektSelect = document.getElementById('projektSelect');
@@ -32,39 +35,50 @@ import { Navigation } from 'swiper/modules'
     const wybraneWojewodztwo = document.getElementById('wybraneWojewodztwo');
     const brakWynikow = document.getElementById('brakWynikow');
 
-    projektSelect.addEventListener('change', filterData);
-    wojewodztwoSelect.addEventListener('change', filterData);
+    // Sprawdź, czy mechanizm istnieje na stronie
+    if (projektSelect && wojewodztwoSelect && daneList && wybraneWojewodztwo && brakWynikow) {
+      projektSelect.addEventListener('change', filterData);
+      wojewodztwoSelect.addEventListener('change', filterData);
 
-    function filterData() {
-      const selectedProjekt = projektSelect.value;
-      const selectedWojewodztwo = wojewodztwoSelect.value;
+      function filterData() {
+        const selectedProjekt = projektSelect.value;
+        const selectedWojewodztwo = wojewodztwoSelect.value;
 
-      wybraneWojewodztwo.textContent = wojewodztwoSelect.options[wojewodztwoSelect.selectedIndex].text;
+        wybraneWojewodztwo.textContent = wojewodztwoSelect.options[wojewodztwoSelect.selectedIndex].text;
 
-      let wyniki = false;
-      let delay = 0;
+        let wyniki = false;
+        let delay = 0;
 
-      for (const dane of daneList.children) {
-        const projekt = dane.getAttribute('data-projekt');
-        const wojewodztwo = dane.getAttribute('data-wojewodztwo');
+        for (const dane of daneList.children) {
+          const projekt = dane.getAttribute('data-projekt');
+          const wojewodztwo = dane.getAttribute('data-wojewodztwo');
 
-        const projektMatch = selectedProjekt === 'wszystkie' || projekt === selectedProjekt;
-        const wojewodztwoMatch = selectedWojewodztwo === 'wszystkie' || wojewodztwo === selectedWojewodztwo;
+          const projektMatch = selectedProjekt === 'wszystkie' || projekt === selectedProjekt;
+          const wojewodztwoMatch = selectedWojewodztwo === 'wszystkie' || wojewodztwo === selectedWojewodztwo;
 
-        dane.classList.remove('visible');
-        dane.style.animationDelay = '0ms';
+          dane.classList.remove('visible');
+          dane.style.animationDelay = '0ms';
 
-        if (projektMatch && wojewodztwoMatch) {
-          dane.style.animationDelay = `${delay}ms`;
-          dane.classList.add('visible');
-          delay += 100;
-          wyniki = true;
+          if (projektMatch && wojewodztwoMatch) {
+            dane.style.animationDelay = `${delay}ms`;
+            dane.classList.add('visible');
+            delay += 100;
+            wyniki = true;
+          }
         }
+
+        brakWynikow.style.display = wyniki ? 'none' : 'block';
       }
 
-      brakWynikow.style.display = wyniki ? 'none' : 'block';
+      filterData();
     }
-    filterData();
   });
+
+  //Scrolltop after clicked btn form
+  document.addEventListener('wpcf7mailsent', function (event) {
+    const labelsucces = document.querySelector('.wpcf7-response-output');
+    const topPos = parseInt(labelsucces.offsetTop);
+    window.scrollTo({ top: topPos, behavior: 'smooth' });
+  }, false);
 
 })();

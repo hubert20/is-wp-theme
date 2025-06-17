@@ -297,7 +297,7 @@
     @include media-breakpoint-down(md) {
         left: 0;
         margin: 0 auto;
-        bottom: 3px;
+        bottom: 0;
     }
 
     &__btn {
@@ -350,4 +350,9 @@
         filter: blur(0);
         opacity: 1;
     }
+}
+
+// Opacity grecaptcha 
+.grecaptcha-badge {
+    opacity: .3;
 }
