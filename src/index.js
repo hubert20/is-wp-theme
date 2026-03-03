@@ -1,18 +1,38 @@
 require("bootstrap");
 import Swiper from "swiper";
-import { Navigation } from 'swiper/modules';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
 (function () {
-  // SWiper slider
-  var swiper = new Swiper(".swiper-container", {
-    modules: [Navigation],
-    speed: 400,
-    autoplay: true,
-    loop: true,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
+  // Swipers on main page
+  const swiperElements = document.querySelectorAll(".js-swiper");
+  swiperElements.forEach((element) => {
+    const type = element.dataset.swiperType || "default";
+    const isStory = type === "story";
+
+    const config = {
+      modules: [Navigation, Pagination, Autoplay],
+      speed: 450,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: element.querySelector(".swiper-pagination"),
+        clickable: true,
+      },
+      slidesPerView: 1,
+      spaceBetween: 20,
+    };
+
+    if (isStory) {
+      config.navigation = {
+        nextEl: element.querySelector(".swiper-button-next"),
+        prevEl: element.querySelector(".swiper-button-prev"),
+      };
+    }
+
+    new Swiper(element, config);
   });
 
   // Sticky menu
@@ -77,8 +97,10 @@ import { Navigation } from 'swiper/modules';
   //Scrolltop after clicked btn form
   document.addEventListener('wpcf7mailsent', function (event) {
     const labelsucces = document.querySelector('.wpcf7-response-output');
-    const topPos = parseInt(labelsucces.offsetTop);
-    window.scrollTo({ top: topPos, behavior: 'smooth' });
+    if (labelsucces) {
+      const topPos = parseInt(labelsucces.offsetTop, 10);
+      window.scrollTo({ top: topPos, behavior: 'smooth' });
+    }
   }, false);
 
 })();

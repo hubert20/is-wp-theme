@@ -1,0 +1,481 @@
+[
+    {
+        "key": "group_67c5a1f2mainpage",
+        "title": "Strona główna",
+        "fields": [
+            {
+                "key": "field_67c5a1f2_tab_hero",
+                "label": "Hero",
+                "name": "",
+                "type": "tab",
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_67c5a1f2_hero_bg",
+                "label": "Hero - tło (lewa kolumna)",
+                "name": "hero_bg",
+                "type": "image",
+                "return_format": "array",
+                "preview_size": "large",
+                "library": "all"
+            },
+            {
+                "key": "field_67c5a1f2_hero_title",
+                "label": "Hero - tytuł",
+                "name": "hero_title",
+                "type": "text"
+            },
+            {
+                "key": "field_67c5a1f2_hero_content",
+                "label": "Hero - treść",
+                "name": "hero_content",
+                "type": "wysiwyg",
+                "tabs": "all",
+                "toolbar": "basic",
+                "media_upload": 0
+            },
+            {
+                "key": "field_67c5a1f2_hero_btn_text",
+                "label": "Hero - tekst przycisku",
+                "name": "hero_button_text",
+                "type": "text"
+            },
+            {
+                "key": "field_67c5a1f2_hero_btn_url",
+                "label": "Hero - link przycisku",
+                "name": "hero_button_url",
+                "type": "url"
+            },
+            {
+                "key": "field_67c5a1f2_tab_intro",
+                "label": "Wstęp",
+                "name": "",
+                "type": "tab",
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_67c5a1f2_intro_title",
+                "label": "Wstęp - tytuł",
+                "name": "intro_title",
+                "type": "text"
+            },
+            {
+                "key": "field_67c5a1f2_intro_content",
+                "label": "Wstęp - treść",
+                "name": "intro_content",
+                "type": "wysiwyg",
+                "tabs": "all",
+                "toolbar": "basic",
+                "media_upload": 0
+            },
+            {
+                "key": "field_67c5a1f2_tab_how",
+                "label": "Jak to działa + Ikony",
+                "name": "",
+                "type": "tab",
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_67c5a1f2_how_title",
+                "label": "Jak to działa - tytuł",
+                "name": "how_title",
+                "type": "text"
+            },
+            {
+                "key": "field_67c5a1f2_how_steps",
+                "label": "Jak to działa - kroki (lewa kolumna)",
+                "name": "how_steps",
+                "type": "repeater",
+                "layout": "row",
+                "button_label": "Dodaj krok",
+                "sub_fields": [
+                    {
+                        "key": "field_67c5a1f2_how_step_text",
+                        "label": "Treść kroku",
+                        "name": "step_text",
+                        "type": "text",
+                        "parent_repeater": "field_67c5a1f2_how_steps"
+                    }
+                ]
+            },
+            {
+                "key": "field_67c5a1f2_how_content",
+                "label": "Jak to działa - prawa kolumna (treść)",
+                "name": "how_content",
+                "type": "wysiwyg",
+                "tabs": "all",
+                "toolbar": "basic",
+                "media_upload": 0
+            },
+            {
+                "key": "field_67c5a1f2_how_btn_text",
+                "label": "Jak to działa - tekst przycisku",
+                "name": "how_button_text",
+                "type": "text"
+            },
+            {
+                "key": "field_67c5a1f2_how_btn_url",
+                "label": "Jak to działa - link przycisku",
+                "name": "how_button_url",
+                "type": "url"
+            },
+            {
+                "key": "field_67c5a1f2_how_icons",
+                "label": "Ikony pod sekcją",
+                "name": "how_icons",
+                "type": "repeater",
+                "layout": "table",
+                "button_label": "Dodaj ikonę",
+                "sub_fields": [
+                    {
+                        "key": "field_67c5a1f2_how_icon_image",
+                        "label": "Ikona",
+                        "name": "icon",
+                        "type": "image",
+                        "return_format": "array",
+                        "preview_size": "medium",
+                        "library": "all",
+                        "parent_repeater": "field_67c5a1f2_how_icons"
+                    },
+                    {
+                        "key": "field_67c5a1f2_how_icon_text",
+                        "label": "Opis ikony",
+                        "name": "text",
+                        "type": "text",
+                        "parent_repeater": "field_67c5a1f2_how_icons"
+                    }
+                ]
+            },
+            {
+                "key": "field_67c5a1f2_tab_about",
+                "label": "O Paczce i Akademii",
+                "name": "",
+                "type": "tab",
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_67c5a1f2_about_title",
+                "label": "Tytuł sekcji",
+                "name": "about_title",
+                "type": "text"
+            },
+            {
+                "key": "field_67c5a1f2_about_cards",
+                "label": "Dwie kolumny sekcji",
+                "name": "about_cards",
+                "type": "repeater",
+                "layout": "block",
+                "button_label": "Dodaj kartę",
+                "min": 0,
+                "max": 2,
+                "sub_fields": [
+                    {
+                        "key": "field_67c5a1f2_about_card_title",
+                        "label": "Tytuł",
+                        "name": "title",
+                        "type": "text",
+                        "parent_repeater": "field_67c5a1f2_about_cards"
+                    },
+                    {
+                        "key": "field_67c5a1f2_about_card_content",
+                        "label": "Treść",
+                        "name": "content",
+                        "type": "wysiwyg",
+                        "tabs": "all",
+                        "toolbar": "basic",
+                        "media_upload": 0,
+                        "parent_repeater": "field_67c5a1f2_about_cards"
+                    },
+                    {
+                        "key": "field_67c5a1f2_about_card_btn_text",
+                        "label": "Tekst przycisku",
+                        "name": "button_text",
+                        "type": "text",
+                        "parent_repeater": "field_67c5a1f2_about_cards"
+                    },
+                    {
+                        "key": "field_67c5a1f2_about_card_btn_url",
+                        "label": "Link przycisku",
+                        "name": "button_url",
+                        "type": "url",
+                        "parent_repeater": "field_67c5a1f2_about_cards"
+                    }
+                ]
+            },
+            {
+                "key": "field_67c5a1f2_tab_funds",
+                "label": "Na co przeznaczamy środki",
+                "name": "",
+                "type": "tab",
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_67c5a1f2_funds_title",
+                "label": "Tytuł sekcji",
+                "name": "funds_title",
+                "type": "text"
+            },
+            {
+                "key": "field_67c5a1f2_funds_intro",
+                "label": "Lead sekcji",
+                "name": "funds_intro",
+                "type": "wysiwyg",
+                "tabs": "all",
+                "toolbar": "basic",
+                "media_upload": 0
+            },
+            {
+                "key": "field_67c5a1f2_funds_items",
+                "label": "Pozycje listy wydatków",
+                "name": "funds_items",
+                "type": "repeater",
+                "layout": "row",
+                "button_label": "Dodaj pozycję",
+                "sub_fields": [
+                    {
+                        "key": "field_67c5a1f2_funds_item_label",
+                        "label": "Etykieta",
+                        "name": "label",
+                        "type": "text",
+                        "parent_repeater": "field_67c5a1f2_funds_items"
+                    },
+                    {
+                        "key": "field_67c5a1f2_funds_item_content",
+                        "label": "Treść",
+                        "name": "content",
+                        "type": "textarea",
+                        "rows": 3,
+                        "new_lines": "",
+                        "parent_repeater": "field_67c5a1f2_funds_items"
+                    }
+                ]
+            },
+            {
+                "key": "field_67c5a1f2_tab_benefits",
+                "label": "Co zyskujesz (slider)",
+                "name": "",
+                "type": "tab",
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_67c5a1f2_benefits_title",
+                "label": "Tytuł sekcji",
+                "name": "benefits_title",
+                "type": "text"
+            },
+            {
+                "key": "field_67c5a1f2_benefits_slides",
+                "label": "Slajdy korzyści",
+                "name": "benefits_slides",
+                "type": "repeater",
+                "layout": "row",
+                "button_label": "Dodaj slajd",
+                "sub_fields": [
+                    {
+                        "key": "field_67c5a1f2_benefit_image",
+                        "label": "Grafika",
+                        "name": "image",
+                        "type": "image",
+                        "return_format": "array",
+                        "preview_size": "medium",
+                        "library": "all",
+                        "parent_repeater": "field_67c5a1f2_benefits_slides"
+                    },
+                    {
+                        "key": "field_67c5a1f2_benefit_title",
+                        "label": "Tytuł",
+                        "name": "title",
+                        "type": "text",
+                        "parent_repeater": "field_67c5a1f2_benefits_slides"
+                    },
+                    {
+                        "key": "field_67c5a1f2_benefit_content",
+                        "label": "Treść",
+                        "name": "content",
+                        "type": "wysiwyg",
+                        "tabs": "all",
+                        "toolbar": "basic",
+                        "media_upload": 0,
+                        "parent_repeater": "field_67c5a1f2_benefits_slides"
+                    }
+                ]
+            },
+            {
+                "key": "field_67c5a1f2_tab_join",
+                "label": "Zostań Inwestorem Społecznym",
+                "name": "",
+                "type": "tab",
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_67c5a1f2_join_title",
+                "label": "Tytuł sekcji",
+                "name": "join_title",
+                "type": "text"
+            },
+            {
+                "key": "field_67c5a1f2_join_steps",
+                "label": "Kroki",
+                "name": "join_steps",
+                "type": "repeater",
+                "layout": "row",
+                "button_label": "Dodaj krok",
+                "sub_fields": [
+                    {
+                        "key": "field_67c5a1f2_join_step_text",
+                        "label": "Treść kroku",
+                        "name": "step_text",
+                        "type": "text",
+                        "parent_repeater": "field_67c5a1f2_join_steps"
+                    }
+                ]
+            },
+            {
+                "key": "field_67c5a1f2_join_btn_text",
+                "label": "Tekst przycisku",
+                "name": "join_button_text",
+                "type": "text"
+            },
+            {
+                "key": "field_67c5a1f2_join_btn_url",
+                "label": "Link przycisku",
+                "name": "join_button_url",
+                "type": "url"
+            },
+            {
+                "key": "field_67c5a1f2_tab_why",
+                "label": "Dlaczego zostałem IS (slider)",
+                "name": "",
+                "type": "tab",
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_67c5a1f2_why_title",
+                "label": "Tytuł sekcji",
+                "name": "why_title",
+                "type": "text"
+            },
+            {
+                "key": "field_67c5a1f2_slider",
+                "label": "Slider",
+                "name": "slider",
+                "type": "repeater",
+                "layout": "row",
+                "button_label": "Dodaj slajd",
+                "sub_fields": [
+                    {
+                        "key": "field_67c5a1f2_slider_cnt",
+                        "label": "Slider Content",
+                        "name": "slider_cnt",
+                        "type": "textarea",
+                        "rows": 8,
+                        "new_lines": "",
+                        "parent_repeater": "field_67c5a1f2_slider"
+                    },
+                    {
+                        "key": "field_67c5a1f2_slider_person",
+                        "label": "Slider stanowisko",
+                        "name": "slider_person",
+                        "type": "textarea",
+                        "rows": 5,
+                        "new_lines": "",
+                        "parent_repeater": "field_67c5a1f2_slider"
+                    },
+                    {
+                        "key": "field_67c5a1f2_slider_img",
+                        "label": "Slider Image",
+                        "name": "slider_img",
+                        "type": "image",
+                        "return_format": "array",
+                        "preview_size": "medium",
+                        "library": "all",
+                        "parent_repeater": "field_67c5a1f2_slider"
+                    }
+                ]
+            },
+            {
+                "key": "field_67c5a1f2_tab_contact",
+                "label": "Kontakt",
+                "name": "",
+                "type": "tab",
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_67c5a1f2_contact_cnt",
+                "label": "Kontakt Content",
+                "name": "contact_cnt",
+                "type": "textarea",
+                "rows": 12,
+                "new_lines": ""
+            },
+            {
+                "key": "field_67c5a1f2_tab_faq",
+                "label": "FAQ",
+                "name": "",
+                "type": "tab",
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_67c5a1f2_faq_title",
+                "label": "FAQ - tytuł",
+                "name": "faq_title",
+                "type": "text"
+            },
+            {
+                "key": "field_67c5a1f2_faq_items",
+                "label": "FAQ - pytania i odpowiedzi",
+                "name": "faq_items",
+                "type": "repeater",
+                "layout": "block",
+                "button_label": "Dodaj pytanie",
+                "sub_fields": [
+                    {
+                        "key": "field_67c5a1f2_faq_question",
+                        "label": "Pytanie",
+                        "name": "question",
+                        "type": "text",
+                        "parent_repeater": "field_67c5a1f2_faq_items"
+                    },
+                    {
+                        "key": "field_67c5a1f2_faq_answer",
+                        "label": "Odpowiedź",
+                        "name": "answer",
+                        "type": "wysiwyg",
+                        "tabs": "all",
+                        "toolbar": "basic",
+                        "media_upload": 0,
+                        "parent_repeater": "field_67c5a1f2_faq_items"
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "templates/mainpage.php"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    }
+]

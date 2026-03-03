@@ -240,3 +240,232 @@
         }
     }
 }
+
+// Mainpage sections
+.mainpage-template {
+    color: #162025;
+
+    .container-narrow {
+        max-width: 980px;
+    }
+}
+
+.mainpage-section-title {
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+}
+
+.mainpage-lead {
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.mainpage-hero {
+    background-color: #d72027;
+    color: #fff;
+
+    &__media {
+        min-height: 300px;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        @include media-breakpoint-up(lg) {
+            min-height: 680px;
+        }
+    }
+
+    &__content {
+        min-height: 300px;
+        padding: 2rem 1.25rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+
+        @include media-breakpoint-up(md) {
+            padding: 2.5rem 2rem;
+        }
+
+        @include media-breakpoint-up(lg) {
+            min-height: 680px;
+            padding: 3.5rem;
+        }
+    }
+
+    &__title {
+        font-weight: 800;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        font-size: clamp(1.8rem, 3.2vw, 3.4rem);
+        line-height: 1.05;
+    }
+
+    &__text {
+        margin-bottom: 1.5rem;
+    }
+}
+
+.mainpage-how {
+    background-color: #f5f3f4;
+
+    &__content {
+        background: #fff;
+        border-radius: 14px;
+        padding: 1.25rem;
+
+        @include media-breakpoint-up(md) {
+            padding: 2rem;
+        }
+    }
+}
+
+.mainpage-icons {
+    &__arrow {
+        color: #d72027;
+        font-size: 2.25rem;
+        font-weight: 700;
+        line-height: 1;
+    }
+}
+
+.mainpage-icon-card {
+    text-align: center;
+    background: #fff;
+    border-radius: 12px;
+    height: 100%;
+    padding: 1.25rem 1rem;
+    box-shadow: 0 10px 24px rgba(18, 31, 43, .08);
+}
+
+.mainpage-about {
+    &__card {
+        background-color: #fff;
+        border-radius: 14px;
+        padding: 1.5rem;
+        height: 100%;
+        box-shadow: 0 12px 24px rgba(18, 31, 43, .08);
+
+        @include media-breakpoint-up(md) {
+            padding: 2rem;
+        }
+    }
+
+    &__title {
+        font-size: 1.35rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    &__content {
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.mainpage-funds {
+    background-color: #f7f7f7;
+
+    &__items {
+        display: grid;
+        gap: 1rem;
+    }
+
+    &__item {
+        background-color: #fff;
+        border-radius: 12px;
+        padding: 1rem 1.25rem;
+        box-shadow: 0 8px 18px rgba(18, 31, 43, .06);
+    }
+
+    &__label {
+        display: inline-block;
+        margin-bottom: .5rem;
+        padding: .3rem .7rem;
+        border-radius: 999px;
+        font-size: .8rem;
+        letter-spacing: .03em;
+        text-transform: uppercase;
+        font-weight: 700;
+        background-color: #d72027;
+        color: #fff;
+    }
+}
+
+.mainpage-benefits {
+    background-color: #111a22;
+    color: #fff;
+}
+
+.main-benefits-swiper {
+    max-width: 980px;
+    margin-inline: auto;
+
+    &__slide {
+        background-color: #fff;
+        color: #111a22;
+        border-radius: 16px;
+        padding: 1.2rem;
+
+        @include media-breakpoint-up(md) {
+            padding: 1.5rem;
+        }
+    }
+
+    .swiper-pagination-bullet {
+        background-color: #fff;
+        opacity: .5;
+    }
+
+    .swiper-pagination-bullet-active {
+        opacity: 1;
+    }
+}
+
+.mainpage-join {
+    .main-number-style-list {
+        max-width: 980px;
+        margin-inline: auto;
+    }
+}
+
+.main-story-swiper {
+    .swiper-button-prev,
+    .swiper-button-next {
+        color: #fff;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: 2px solid #15175c;
+        background-color: #15175c;
+        opacity: .85;
+
+        &:after {
+            font-size: 20px;
+        }
+    }
+}
+
+.mainpage-faq {
+    .accordion-item {
+        border: 1px solid #e6e6e6;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: .75rem;
+    }
+
+    .accordion-button {
+        font-weight: 600;
+        box-shadow: none !important;
+    }
+
+    .accordion-button:not(.collapsed) {
+        color: #fff;
+        background-color: #d72027;
+    }
+}
