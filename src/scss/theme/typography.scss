@@ -2,32 +2,25 @@
 // #Typography rules
 // ------------------------------------ //
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-$poppins-weights: 100, 200, 300, 400, 500, 600, 700, 800, 900;
-
 $font-primary: "Poppins", sans-serif;
+$font-secondary: "Barlow", sans-serif;
 
-@each $weight in $poppins-weights {
-  .poppins-#{$weight} {
-    font-family: "Poppins", sans-serif;
-    font-optical-sizing: auto;
+$weights: 400, 500, 600, 700;
+
+@each $weight in $weights {
+  .fw-#{$weight} {
     font-weight: $weight;
-    font-style: normal;
   }
 }
 
-html,
-body {
-  background: white;
-  font-family: "Poppins", sans-serif;
+.font-primary {
+  font-family: $font-primary;
 }
 
-@for $i from 11 through 16 {
-  .lh-#{$i} {
-    line-height: #{($i / 10)};
-  }
+.font-secondary {
+  font-family: $font-secondary;
 }
+
 
 //Title big 105px-50px
 //h1 80px-40px

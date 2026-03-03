@@ -3,38 +3,51 @@
 // ini_set('display_startup_errors', 1);
 // error_reporting(E_ALL);
 
-function wp_is_scripts() {
+function wp_is_scripts()
+{
+
   $style_path = get_template_directory() . '/dist/style.css';
   $script_path = get_template_directory() . '/dist/main.bundle.js';
 
   $style_ver = file_exists($style_path) ? filemtime($style_path) : null;
   $script_ver = file_exists($script_path) ? filemtime($script_path) : null;
 
+  // CSS theme
   wp_enqueue_style(
-      'wp-is-css',
-      get_template_directory_uri() . '/dist/style.css',
-      [],
-      $style_ver,
-      'all'
+    'wp-is-css',
+    get_template_directory_uri() . '/dist/style.css',
+    [],
+    $style_ver,
+    'all'
   );
 
+  // Google Fonts (optymalna wersja)
   wp_enqueue_style(
-      'font-awesome-4',
-      'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css',
-      [],
-      null
+    'google-fonts',
+    'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Barlow:wght@400;600;700&display=swap',
+    [],
+    null
+  );
+
+  // Font Awesome (o tym za chwilę 👇)
+  wp_enqueue_style(
+    'font-awesome-4',
+    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css',
+    [],
+    null
   );
 
   wp_enqueue_script('jquery');
 
   wp_enqueue_script(
-      'wp-is-js',
-      get_template_directory_uri() . '/dist/main.bundle.js',
-      ['jquery'],
-      $script_ver,
-      true
+    'wp-is-js',
+    get_template_directory_uri() . '/dist/main.bundle.js',
+    ['jquery'],
+    $script_ver,
+    true
   );
 }
+
 add_action('wp_enqueue_scripts', 'wp_is_scripts');
 
 
@@ -247,13 +260,13 @@ function custom_remove_category_base_from_breadcrumbs($links)
  */
 function add_defer_attribute($tag, $handle, $src)
 {
-    // List of script handles to defer
-    $scripts_to_defer = ['my_javascript_file'];
+  // List of script handles to defer
+  $scripts_to_defer = ['my_javascript_file'];
 
-    if (in_array($handle, $scripts_to_defer)) {
-        return '<script src="' . esc_url($src) . '" defer></script>' . "\n";
-    }
+  if (in_array($handle, $scripts_to_defer)) {
+    return '<script src="' . esc_url($src) . '" defer></script>' . "\n";
+  }
 
-    return $tag;
+  return $tag;
 }
 add_filter('script_loader_tag', 'add_defer_attribute', 10, 3);
