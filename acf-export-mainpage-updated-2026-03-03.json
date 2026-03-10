@@ -71,6 +71,18 @@
                 "media_upload": 0
             },
             {
+                "key": "field_67c5a1f2_intro_btn_text",
+                "label": "Wstęp - tekst przycisku",
+                "name": "intro_button_text",
+                "type": "text"
+            },
+            {
+                "key": "field_67c5a1f2_intro_btn_url",
+                "label": "Wstęp - link przycisku",
+                "name": "intro_button_url",
+                "type": "url"
+            },
+            {
                 "key": "field_67c5a1f2_tab_how",
                 "label": "Jak to działa + Ikony",
                 "name": "",
@@ -191,6 +203,38 @@
                         "parent_repeater": "field_67c5a1f2_about_cards"
                     },
                     {
+                        "key": "field_67c5a1f2_about_card_stats_title",
+                        "label": "Tytuł paska statystyk",
+                        "name": "stats_title",
+                        "type": "text",
+                        "parent_repeater": "field_67c5a1f2_about_cards"
+                    },
+                    {
+                        "key": "field_67c5a1f2_about_card_stats_items",
+                        "label": "Statystyki (liczba + opis)",
+                        "name": "stats_items",
+                        "type": "repeater",
+                        "layout": "table",
+                        "button_label": "Dodaj statystykę",
+                        "sub_fields": [
+                            {
+                                "key": "field_67c5a1f2_about_card_stat_value",
+                                "label": "Liczba / procent",
+                                "name": "value",
+                                "type": "text",
+                                "parent_repeater": "field_67c5a1f2_about_card_stats_items"
+                            },
+                            {
+                                "key": "field_67c5a1f2_about_card_stat_label",
+                                "label": "Opis pod liczbą",
+                                "name": "label",
+                                "type": "text",
+                                "parent_repeater": "field_67c5a1f2_about_card_stats_items"
+                            }
+                        ],
+                        "parent_repeater": "field_67c5a1f2_about_cards"
+                    },
+                    {
                         "key": "field_67c5a1f2_about_card_btn_text",
                         "label": "Tekst przycisku",
                         "name": "button_text",
@@ -201,6 +245,20 @@
                         "key": "field_67c5a1f2_about_card_btn_url",
                         "label": "Link przycisku",
                         "name": "button_url",
+                        "type": "url",
+                        "parent_repeater": "field_67c5a1f2_about_cards"
+                    },
+                    {
+                        "key": "field_67c5a1f2_about_card_footer_note",
+                        "label": "Podpis dolny (np. [link do:])",
+                        "name": "footer_note",
+                        "type": "text",
+                        "parent_repeater": "field_67c5a1f2_about_cards"
+                    },
+                    {
+                        "key": "field_67c5a1f2_about_card_footer_link",
+                        "label": "Link dolny",
+                        "name": "footer_link",
                         "type": "url",
                         "parent_repeater": "field_67c5a1f2_about_cards"
                     }

@@ -13,6 +13,8 @@ $hero_button_url = get_field('hero_button_url');
 
 $intro_title = get_field('intro_title');
 $intro_content = get_field('intro_content');
+$intro_button_text = get_field('intro_button_text');
+$intro_button_url = get_field('intro_button_url');
 
 $how_title = get_field('how_title');
 $how_steps = get_field('how_steps');
@@ -43,6 +45,15 @@ $contact_cnt = get_field('contact_cnt');
 $faq_title = get_field('faq_title');
 $faq_items = get_field('faq_items');
 
+$heading_allowed_tags = [
+    'strong' => [],
+    'b' => [],
+    'em' => [],
+    'i' => [],
+    'br' => [],
+    'span' => ['class' => true],
+];
+
 $hero_bg_url = '';
 if (is_array($hero_bg) && !empty($hero_bg['url'])) {
     $hero_bg_url = $hero_bg['url'];
@@ -58,12 +69,14 @@ if (is_array($hero_bg) && !empty($hero_bg['url'])) {
         <div class="container-fluid px-0">
             <div class="row g-0">
                 <div class="col-lg-6">
-                    <div class="mainpage-hero__media" style="<?php echo $hero_bg_url ? "background-image: url('" . esc_url($hero_bg_url) . "')" : ''; ?>"></div>
+                    <div class="mainpage-hero__media" style="<?php echo $hero_bg_url ? "background-image: url('" . esc_url($hero_bg_url) . "')" : ''; ?>">
+                        <img src="<?php echo esc_url(home_url('/wp-content/uploads/2026/03/logos.png')); ?>" alt="Logotypy partnerów" class="mainpage-hero__corner-logo">
+                    </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 d-flex flex-column justify-content-center">
                     <div class="mainpage-hero__content">
                         <?php if ($hero_title) : ?>
-                            <h1 class="mainpage-hero__title"><?php echo esc_html($hero_title); ?></h1>
+                            <h1 class="mainpage-hero__title font-secondary text-center lh-1 mb-3 mb-lg-5"><?php echo wp_kses((string) $hero_title, $heading_allowed_tags); ?></h1>
                         <?php endif; ?>
                         <?php if ($hero_content) : ?>
                             <div class="mainpage-hero__text"><?php echo wp_kses_post($hero_content); ?></div>
@@ -81,10 +94,13 @@ if (is_array($hero_bg) && !empty($hero_bg['url'])) {
     <section class="py-5 text-center">
         <div class="container container-narrow">
             <?php if ($intro_title) : ?>
-                <h2 class="mainpage-section-title"><?php echo esc_html($intro_title); ?></h2>
+                <h2 class="mainpage-section-title font-secondary standard-title-5"><?php echo wp_kses((string) $intro_title, $heading_allowed_tags); ?></h2>
             <?php endif; ?>
             <?php if ($intro_content) : ?>
                 <div class="mainpage-lead"><?php echo wp_kses_post($intro_content); ?></div>
+            <?php endif; ?>
+            <?php if ($intro_button_text && $intro_button_url) : ?>
+                <a href="<?php echo esc_url($intro_button_url); ?>" class="btn btn-danger rounded-pill px-4 py-2 mt-3"><?php echo esc_html($intro_button_text); ?></a>
             <?php endif; ?>
         </div>
     </section>
@@ -95,7 +111,7 @@ if (is_array($hero_bg) && !empty($hero_bg['url'])) {
             <div class="row g-4 g-xl-5">
                 <div class="col-lg-6">
                     <?php if ($how_title) : ?>
-                        <h2 class="mainpage-section-title text-start"><?php echo esc_html($how_title); ?></h2>
+                        <h2 class="font-secondary mainpage-section-title text-start font-secondary standard-title-5"><?php echo wp_kses((string) $how_title, $heading_allowed_tags); ?></h2>
                     <?php endif; ?>
                     <?php if ($how_steps) : ?>
                         <ol class="main-number-style-list list-unstyled">
@@ -107,9 +123,9 @@ if (is_array($hero_bg) && !empty($hero_bg['url'])) {
                         </ol>
                     <?php endif; ?>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 d-flex">
                     <?php if ($how_content) : ?>
-                        <div class="mainpage-how__content"><?php echo wp_kses_post($how_content); ?></div>
+                        <div class="mainpage-how__content d-flex justify-content-center flex-column"><?php echo wp_kses_post($how_content); ?></div>
                     <?php endif; ?>
                     <?php if ($how_button_text && $how_button_url) : ?>
                         <a href="<?php echo esc_url($how_button_url); ?>" class="btn btn-danger rounded-pill px-4 py-2 mt-3"><?php echo esc_html($how_button_text); ?></a>
@@ -121,7 +137,7 @@ if (is_array($hero_bg) && !empty($hero_bg['url'])) {
 
     <!-- 4. Ikony -->
     <?php if ($how_icons) : ?>
-        <section class="pb-5">
+        <section class="py-4 py-lg-5">
             <div class="container">
                 <div class="row g-3 align-items-start justify-content-center mainpage-icons">
                     <?php foreach ($how_icons as $index => $icon_item) : ?>
@@ -132,18 +148,18 @@ if (is_array($hero_bg) && !empty($hero_bg['url'])) {
                                     $icon_id = is_array($icon_item['icon']) && !empty($icon_item['icon']['ID']) ? $icon_item['icon']['ID'] : 0;
                                     $icon_alt = is_array($icon_item['icon']) && !empty($icon_item['icon']['alt']) ? $icon_item['icon']['alt'] : '';
                                     if ($icon_id) {
-                                        echo wp_get_attachment_image($icon_id, 'medium', false, ['class' => 'img-fluid mb-3', 'alt' => esc_attr($icon_alt)]);
+                                        echo wp_get_attachment_image($icon_id, 'medium', false, ['class' => 'img-fluid mb-3 mainpage-icon-card__icon', 'alt' => esc_attr($icon_alt)]);
                                     }
                                     ?>
                                 <?php endif; ?>
                                 <?php if (!empty($icon_item['text'])) : ?>
-                                    <p class="mb-0"><?php echo esc_html($icon_item['text']); ?></p>
+                                    <p class="mb-0"><?php echo wp_kses_post($icon_item['text']); ?></p>
                                 <?php endif; ?>
                             </div>
                         </div>
                         <?php if ($index < count($how_icons) - 1) : ?>
-                            <div class="d-none d-md-flex col-md-1 justify-content-center align-items-center">
-                                <span class="mainpage-icons__arrow">&rarr;</span>
+                            <div class="d-none d-md-flex col-md-1 mainpage-icons__arrow-col">
+                                <span class="mainpage-icons__arrow" aria-hidden="true"></span>
                             </div>
                         <?php endif; ?>
                     <?php endforeach; ?>
@@ -153,38 +169,85 @@ if (is_array($hero_bg) && !empty($hero_bg['url'])) {
     <?php endif; ?>
 
     <!-- 5. O Paczce i Akademii -->
-    <section class="mainpage-about py-5">
-        <div class="container">
-            <?php if ($about_title) : ?>
-                <h2 class="mainpage-section-title"><?php echo esc_html($about_title); ?></h2>
-            <?php endif; ?>
-            <?php if ($about_cards) : ?>
-                <div class="row g-4">
-                    <?php foreach ($about_cards as $card) : ?>
+    <section class="mainpage-about">
+        <?php if ($about_title) : ?>
+            <div class="container py-4 py-lg-5">
+                <h2 class="font-secondary mainpage-section-title mb-0 standard-title-5"><?php echo wp_kses((string) $about_title, $heading_allowed_tags); ?></h2>
+            </div>
+        <?php endif; ?>
+        <?php if ($about_cards) : ?>
+            <div class="container-fluid px-0">
+                <div class="row g-0">
+                    <?php foreach ($about_cards as $index => $card) : ?>
+                        <?php
+                        $card_intro = $card['content'] ?? '';
+                        $card_stats_title = $card['stats_title'] ?? '';
+                        $card_stats = $card['stats_items'] ?? [];
+                        $card_footer_note = $card['footer_note'] ?? '';
+                        $card_footer_link = $card['footer_link'] ?? '';
+                        $side_class = $index % 2 === 0 ? 'mainpage-about__panel--left' : 'mainpage-about__panel--right';
+                        ?>
                         <div class="col-lg-6">
-                            <div class="mainpage-about__card">
-                                <?php if (!empty($card['title'])) : ?>
-                                    <h3 class="mainpage-about__title"><?php echo esc_html($card['title']); ?></h3>
-                                <?php endif; ?>
-                                <?php if (!empty($card['content'])) : ?>
-                                    <div class="mainpage-about__content"><?php echo wp_kses_post($card['content']); ?></div>
-                                <?php endif; ?>
-                                <?php if (!empty($card['button_text']) && !empty($card['button_url'])) : ?>
-                                    <a href="<?php echo esc_url($card['button_url']); ?>" class="btn btn-danger rounded-pill px-4 py-2 mt-2"><?php echo esc_html($card['button_text']); ?></a>
-                                <?php endif; ?>
+                            <div class="mainpage-about__panel <?php echo esc_attr($side_class); ?>">
+                                <div class="mainpage-about__inner">
+                                    <?php if (!empty($card['title'])) : ?>
+                                        <h3 class="mainpage-about__title"><?php echo wp_kses((string) $card['title'], $heading_allowed_tags); ?></h3>
+                                    <?php endif; ?>
+                                    <?php if (!empty($card_intro)) : ?>
+                                        <div class="mainpage-about__content"><?php echo wp_kses_post($card_intro); ?></div>
+                                    <?php endif; ?>
+
+                                    <?php if (!empty($card_stats_title)) : ?>
+                                        <p class="mainpage-about__stats-title"><?php echo wp_kses_post((string) $card_stats_title, $heading_allowed_tags); ?></p>
+                                    <?php endif; ?>
+
+                                    <?php if (!empty($card_stats)) : ?>
+                                        <div class="mainpage-about__stats-grid py-4">
+                                            <?php foreach ($card_stats as $stat_item) : ?>
+                                                <?php
+                                                $stat_value = $stat_item['value'] ?? '';
+                                                $stat_label = $stat_item['label'] ?? '';
+                                                $stat_value_color_class = $side_class === 'mainpage-about__panel--left' ? 'text-white' : 'text-dark';
+                                                ?>
+                                                <div class="mainpage-about__stat">
+                                                    <?php if ($stat_value !== '') : ?>
+                                                        <p class="mainpage-about__stat-value <?php echo esc_attr($stat_value_color_class); ?> font-secondary"><?php echo wp_kses((string) $stat_value, $heading_allowed_tags); ?></p>
+                                                    <?php endif; ?>
+                                                    <?php if ($stat_label !== '') : ?>
+                                                        <p class="mainpage-about__stat-label"><?php echo wp_kses((string) $stat_label, $heading_allowed_tags); ?></p>
+                                                    <?php endif; ?>
+                                                </div>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    <?php endif; ?>
+
+                                    <?php if (!empty($card['button_text']) && !empty($card['button_url'])) : ?>
+                                        <a href="<?php echo esc_url($card['button_url']); ?>" class="btn btn-danger rounded-pill px-4 py-2 mt-3"><?php echo esc_html($card['button_text']); ?></a>
+                                    <?php endif; ?>
+                                    <?php if (!empty($card_footer_note) || !empty($card_footer_link)) : ?>
+                                        <p class="mainpage-about__footer-note mt-3 mb-0">
+                                            <?php if (!empty($card_footer_note)) : ?>
+                                                <span><?php echo esc_html($card_footer_note); ?></span>
+                                            <?php endif; ?>
+                                            <?php if (!empty($card_footer_link)) : ?>
+                                                <a href="<?php echo esc_url($card_footer_link); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html($card_footer_link); ?></a>
+                                            <?php endif; ?>
+                                        </p>
+                                    <?php endif; ?>
+                                </div>
                             </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
-            <?php endif; ?>
-        </div>
+            </div>
+        <?php endif; ?>
     </section>
 
     <!-- 6. Na co przeznaczamy środki -->
     <section class="mainpage-funds py-5">
         <div class="container">
             <?php if ($funds_title) : ?>
-                <h2 class="mainpage-section-title"><?php echo esc_html($funds_title); ?></h2>
+                <h2 class="mainpage-section-title font-secondary standard-title-5"><?php echo wp_kses((string) $funds_title, $heading_allowed_tags); ?></h2>
             <?php endif; ?>
             <?php if ($funds_intro) : ?>
                 <div class="mainpage-lead text-center mb-4"><?php echo wp_kses_post($funds_intro); ?></div>
@@ -210,7 +273,7 @@ if (is_array($hero_bg) && !empty($hero_bg['url'])) {
     <section class="mainpage-benefits py-5">
         <div class="container">
             <?php if ($benefits_title) : ?>
-                <h2 class="mainpage-section-title text-white"><?php echo esc_html($benefits_title); ?></h2>
+                <h2 class="mainpage-section-title text-white font-secondary standard-title-5"><?php echo wp_kses((string) $benefits_title, $heading_allowed_tags); ?></h2>
             <?php endif; ?>
             <?php if ($benefits_slides) : ?>
                 <div class="swiper js-swiper main-benefits-swiper" data-swiper-type="benefits">
@@ -218,36 +281,48 @@ if (is_array($hero_bg) && !empty($hero_bg['url'])) {
                         <?php foreach ($benefits_slides as $slide) : ?>
                             <div class="swiper-slide">
                                 <div class="main-benefits-swiper__slide">
-                                    <?php if (!empty($slide['image'])) : ?>
-                                        <?php
-                                        $benefit_image_id = is_array($slide['image']) && !empty($slide['image']['ID']) ? $slide['image']['ID'] : 0;
-                                        $benefit_image_alt = is_array($slide['image']) && !empty($slide['image']['alt']) ? $slide['image']['alt'] : '';
-                                        if ($benefit_image_id) {
-                                            echo wp_get_attachment_image($benefit_image_id, 'large', false, ['class' => 'img-fluid rounded mb-3', 'alt' => esc_attr($benefit_image_alt)]);
-                                        }
-                                        ?>
-                                    <?php endif; ?>
-                                    <?php if (!empty($slide['title'])) : ?>
-                                        <h3 class="h5 mb-2"><?php echo esc_html($slide['title']); ?></h3>
-                                    <?php endif; ?>
-                                    <?php if (!empty($slide['content'])) : ?>
-                                        <div><?php echo wp_kses_post($slide['content']); ?></div>
-                                    <?php endif; ?>
+                                    <div class="row g-4 align-items-center">
+                                        <div class="col-lg-6">
+                                            <?php if (!empty($slide['image'])) : ?>
+                                                <?php
+                                                $benefit_image_id = is_array($slide['image']) && !empty($slide['image']['ID']) ? $slide['image']['ID'] : 0;
+                                                $benefit_image_alt = is_array($slide['image']) && !empty($slide['image']['alt']) ? $slide['image']['alt'] : '';
+                                                if ($benefit_image_id) {
+                                                    echo wp_get_attachment_image($benefit_image_id, 'large', false, ['class' => 'img-fluid rounded main-benefits-swiper__image', 'alt' => esc_attr($benefit_image_alt)]);
+                                                }
+                                                ?>
+                                            <?php endif; ?>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="main-benefits-swiper__content">
+                                                <?php if (!empty($slide['title'])) : ?>
+                                                    <h3 class="h4 mb-3"><?php echo wp_kses((string) $slide['title'], $heading_allowed_tags); ?></h3>
+                                                <?php endif; ?>
+                                                <?php if (!empty($slide['content'])) : ?>
+                                                    <div><?php echo wp_kses_post($slide['content']); ?></div>
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         <?php endforeach; ?>
                     </div>
-                    <div class="swiper-pagination"></div>
+                    <div class="main-benefits-swiper__controls">
+                        <div class="swiper-button-prev" aria-label="Poprzedni slajd"></div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next" aria-label="Następny slajd"></div>
+                    </div>
                 </div>
             <?php endif; ?>
         </div>
     </section>
 
     <!-- 8. Zostań Inwestorem -->
-    <section class="mainpage-join py-5">
+    <section class="mainpage-join py-5 bg-gray-light">
         <div class="container">
             <?php if ($join_title) : ?>
-                <h2 class="mainpage-section-title"><?php echo esc_html($join_title); ?></h2>
+                <h2 class="mainpage-section-title font-secondary standard-title-5"><?php echo wp_kses((string) $join_title, $heading_allowed_tags); ?></h2>
             <?php endif; ?>
             <?php if ($join_steps) : ?>
                 <ol class="main-number-style-list list-sm list-unstyled">
@@ -270,7 +345,7 @@ if (is_array($hero_bg) && !empty($hero_bg['url'])) {
     <section class="py-5">
         <div class="container">
             <?php if ($why_title) : ?>
-                <h2 class="mainpage-section-title"><?php echo esc_html($why_title); ?></h2>
+                <h2 class="mainpage-section-title font-secondary standard-title-5"><?php echo wp_kses((string) $why_title, $heading_allowed_tags); ?></h2>
             <?php endif; ?>
             <div class="swiper js-swiper main-story-swiper" data-swiper-type="story">
                 <div class="swiper-wrapper px-xl-4">
@@ -279,19 +354,50 @@ if (is_array($hero_bg) && !empty($hero_bg['url'])) {
                             $slider_cnt = get_sub_field('slider_cnt');
                             $slider_person = get_sub_field('slider_person');
                             $slider_img = get_sub_field('slider_img');
+                            $person_name = '';
+                            $person_role = '';
+
+                            $slider_person_plain = trim(wp_strip_all_tags(html_entity_decode((string) $slider_person, ENT_QUOTES, 'UTF-8')));
+                            if ($slider_person_plain !== '') {
+                                $person_lines = preg_split('/\r\n|\r|\n/', $slider_person_plain);
+                                if (!empty($person_lines[0])) {
+                                    $person_name = trim($person_lines[0]);
+                                }
+                                if (!empty($person_lines[1])) {
+                                    $person_role = trim(implode(' ', array_slice($person_lines, 1)));
+                                }
+
+                                // Fallback: if editor content is in one line, treat first 2 words as name.
+                                if ($person_role === '') {
+                                    $person_words = preg_split('/\s+/', $slider_person_plain);
+                                    if (is_array($person_words) && count($person_words) > 2) {
+                                        $person_name = trim($person_words[0] . ' ' . $person_words[1]);
+                                        $person_role = trim(implode(' ', array_slice($person_words, 2)));
+                                    }
+                                }
+                            }
                         ?>
                             <div class="swiper-slide">
-                                <div class="row justify-content-center align-items-center">
-                                    <div class="col-lg-6 mb-3 mb-lg-0">
-                                        <?php echo wp_kses_post($slider_cnt); ?>
-                                    </div>
-                                    <div class="col-11 col-lg-5 text-center">
-                                        <?php if ($slider_img) : ?>
-                                            <div class="slider-person position-relative">
-                                                <?php echo wp_kses_post($slider_person); ?>
-                                                <img src="<?php echo esc_url($slider_img['url']); ?>" alt="<?php echo esc_attr($slider_img['alt']); ?>" class="img-fluid mx-auto rounded">
+                                <div class="main-story-card">
+                                    <div class="row g-0 align-items-center">
+                                        <div class="col-lg-4 text-center">
+                                            <?php if ($slider_img) : ?>
+                                                <img src="<?php echo esc_url($slider_img['url']); ?>" alt="<?php echo esc_attr($slider_img['alt']); ?>" class="img-fluid main-story-card__image">
+                                            <?php endif; ?>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <div class="main-story-card__content">
+                                                <div class="main-story-card__person">
+                                                    <?php if ($person_name) : ?>
+                                                        <p class="main-story-card__name"><?php echo esc_html($person_name); ?></p>
+                                                    <?php endif; ?>
+                                                    <?php if ($person_role) : ?>
+                                                        <p class="main-story-card__role"><?php echo esc_html($person_role); ?></p>
+                                                    <?php endif; ?>
+                                                </div>
+                                                <div class="main-story-card__text"><?php echo wp_kses_post($slider_cnt); ?></div>
                                             </div>
-                                        <?php endif; ?>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -306,15 +412,17 @@ if (is_array($hero_bg) && !empty($hero_bg['url'])) {
     </section>
 
     <!-- 10. Kontakt (istniejąca sekcja) -->
-    <?php if ($contact_cnt) : ?>
-        <?php echo wp_kses_post($contact_cnt); ?>
-    <?php endif; ?>
+    <section class="py-5 bg-gray-light">
+        <?php if ($contact_cnt) : ?>
+            <?php echo wp_kses_post($contact_cnt); ?>
+        <?php endif; ?>
+    </section>
 
     <!-- 11. FAQ -->
-    <section class="mainpage-faq py-5">
+    <section class="mainpage-faq py-5 bg-gray-light">
         <div class="container">
             <?php if ($faq_title) : ?>
-                <h2 class="mainpage-section-title"><?php echo esc_html($faq_title); ?></h2>
+                <h2 class="mainpage-section-title font-secondary standard-title-5"><?php echo wp_kses((string) $faq_title, $heading_allowed_tags); ?></h2>
             <?php endif; ?>
             <?php if ($faq_items) : ?>
                 <div class="accordion" id="mainpageFaq">

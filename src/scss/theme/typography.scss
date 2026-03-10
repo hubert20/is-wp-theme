@@ -5,6 +5,10 @@
 $font-primary: "Poppins", sans-serif;
 $font-secondary: "Barlow", sans-serif;
 
+body {
+  font-family: $font-secondary;
+}
+
 $weights: 400, 500, 600, 700;
 
 @each $weight in $weights {
@@ -22,7 +26,6 @@ $weights: 400, 500, 600, 700;
 }
 
 
-//Title big 105px-50px
 //h1 80px-40px
 @media (min-width: 360px) {
   .standard-title-big {

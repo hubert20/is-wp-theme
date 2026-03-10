@@ -8,6 +8,7 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
   swiperElements.forEach((element) => {
     const type = element.dataset.swiperType || "default";
     const isStory = type === "story";
+    const isBenefits = type === "benefits";
 
     const config = {
       modules: [Navigation, Pagination, Autoplay],
@@ -25,7 +26,11 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
       spaceBetween: 20,
     };
 
-    if (isStory) {
+    if (isStory || isBenefits) {
+      config.autoplay = false;
+    }
+
+    if (isStory || isBenefits) {
       config.navigation = {
         nextEl: element.querySelector(".swiper-button-next"),
         prevEl: element.querySelector(".swiper-button-prev"),
