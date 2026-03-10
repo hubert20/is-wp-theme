@@ -99,6 +99,7 @@
     }
 
     .navbar-toggler {
+        background-color: #fff;
         &:focus {
             box-shadow: none;
         }
@@ -354,4 +355,26 @@
 // Opacity grecaptcha 
 .grecaptcha-badge {
     opacity: .3;
+}
+
+.list-nice {
+    li {
+        position: relative;
+        padding-left: 30px;
+        padding-bottom: 5px;
+
+        &:before {
+            content: "\f00c";
+            font-family: FontAwesome;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: inherit;
+            color: #ed1c24;
+            font-size: 18px;
+            padding-right: 0.5em;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
 }

@@ -117,7 +117,7 @@ if (is_array($hero_bg) && !empty($hero_bg['url'])) {
                         <ol class="main-number-style-list list-unstyled">
                             <?php foreach ($how_steps as $step) : ?>
                                 <?php if (!empty($step['step_text'])) : ?>
-                                    <li><?php echo esc_html($step['step_text']); ?></li>
+                                    <li><?php echo wp_kses_post($step['step_text']); ?></li>
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         </ol>
@@ -328,7 +328,7 @@ if (is_array($hero_bg) && !empty($hero_bg['url'])) {
                 <ol class="main-number-style-list list-sm list-unstyled">
                     <?php foreach ($join_steps as $step) : ?>
                         <?php if (!empty($step['step_text'])) : ?>
-                            <li><?php echo esc_html($step['step_text']); ?></li>
+                            <li><?php echo wp_kses_post($step['step_text']); ?></li>
                         <?php endif; ?>
                     <?php endforeach; ?>
                 </ol>

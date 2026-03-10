@@ -742,7 +742,7 @@
     &__name {
         margin: 0 0 .35rem;
         line-height: 1.15;
-        font-size: clamp(2rem, 2.6vw, 2.7rem);
+        font-size: clamp(2rem, 2.6vw, 2.4rem);
         font-weight: 800;
         letter-spacing: .01em;
         color: #162025;
@@ -751,7 +751,7 @@
     &__role {
         margin: 0;
         line-height: 1.2;
-        font-size: clamp(1.45rem, 1.95vw, 1.85rem);
+        font-size: clamp(1.45rem, 1.95vw, 1.55rem);
         color: #4b4b4b;
         font-weight: 400;
     }
