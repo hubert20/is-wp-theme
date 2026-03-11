@@ -22,20 +22,23 @@
 </head>
 
 <body <?php body_class(); ?>>
+    <?php $is_hero_page = is_page_template('templates/mainpage.php'); ?>
     <header id="top-header" role="banner">
         <!-- Top header -->
         <div class="top-header-menu">
             <div class="container px-xl-4">
                 <nav class="navbar navbar-expand-xl navbar-theme py-lg-0 justify-content-end justify-content-xl-center">
-                    <!-- Left logo SzP -->
-                    <a href="<?php echo esc_url(home_url('/')); ?>" class="navbar-brand top-logo top-logo--szp d-block d-lg-none p-0">
-                        <img src="<?php echo esc_url(str_replace('http://', 'https://', get_theme_mod('is_wp_theme_logo_left'))); ?>" alt="">
-                    </a>
+                    <?php if (!$is_hero_page) : ?>
+                        <!-- Left logo SzP -->
+                        <a href="<?php echo esc_url(home_url('/')); ?>" class="navbar-brand top-logo top-logo--szp d-block d-lg-none p-0">
+                            <img src="<?php echo esc_url(str_replace('http://', 'https://', get_theme_mod('is_wp_theme_logo_left'))); ?>" alt="">
+                        </a>
 
-                    <!-- Right logo AP -->
-                    <a href="<?php echo esc_url(home_url('/')); ?>" class="navbar-brand top-logo top-logo--ap d-block d-lg-none p-0">
-                        <img src="<?php echo esc_url(str_replace('http://', 'https://', get_theme_mod('is_wp_theme_logo_right'))); ?>" alt="">
-                    </a>
+                        <!-- Right logo AP -->
+                        <a href="<?php echo esc_url(home_url('/')); ?>" class="navbar-brand top-logo top-logo--ap d-block d-lg-none p-0">
+                            <img src="<?php echo esc_url(str_replace('http://', 'https://', get_theme_mod('is_wp_theme_logo_right'))); ?>" alt="">
+                        </a>
+                    <?php endif; ?>
 
                     <button class="navbar-toggler rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
