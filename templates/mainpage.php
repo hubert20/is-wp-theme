@@ -76,7 +76,7 @@ if (is_array($hero_bg) && !empty($hero_bg['url'])) {
                 <div class="col-lg-6 d-flex flex-column justify-content-center">
                     <div class="mainpage-hero__content">
                         <?php if ($hero_title) : ?>
-                            <h1 class="mainpage-hero__title font-secondary text-center lh-1 mb-3 mb-lg-5"><?php echo wp_kses((string) $hero_title, $heading_allowed_tags); ?></h1>
+                            <h1 class="mainpage-hero__title font-secondary text-center lh-1 mb-3 mb-xxl-4"><?php echo wp_kses((string) $hero_title, $heading_allowed_tags); ?></h1>
                         <?php endif; ?>
                         <?php if ($hero_content) : ?>
                             <div class="mainpage-hero__text"><?php echo wp_kses_post($hero_content); ?></div>

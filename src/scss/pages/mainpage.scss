@@ -320,23 +320,6 @@
     &__title {
         font-weight: 800;
         text-transform: uppercase;
-        margin-bottom: 1rem;
-        font-size: 2.8125rem;
-        min-height: 0vw;
-
-        @media (min-width: 360px) {
-            font-size: calc(2.8125rem + ((1vw - 3.6px) * 5.1282));
-        }
-
-        @media (min-width: 1920px) {
-            font-size: 125px;
-        }
-
-        line-height: 1.05;
-    }
-
-    &__text {
-        margin-bottom: 1.5rem;
     }
 }
 
@@ -783,4 +766,17 @@
         color: #fff;
         background-color: #d72027;
     }
+}
+
+@media (min-width: 360px) {
+  .mainpage-hero__title {
+    font-size: calc(2.8125rem + ((1vw - 3.6px) * 4.29));
+    min-height: 0vw;
+  }
+}
+
+@media (min-width: 1920px) {
+  .mainpage-hero__title {
+    font-size: 110px;
+  }
 }
