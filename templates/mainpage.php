@@ -105,6 +105,56 @@ if (is_array($hero_bg) && !empty($hero_bg['url'])) {
         </div>
     </section>
 
+
+    <!-- 7. Co zyskujesz -->
+    <section class="mainpage-benefits py-5">
+        <div class="container">
+            <?php if ($benefits_title) : ?>
+                <h2 class="mainpage-section-title text-white font-secondary standard-title-5"><?php echo wp_kses((string) $benefits_title, $heading_allowed_tags); ?></h2>
+            <?php endif; ?>
+            <?php if ($benefits_slides) : ?>
+                <div class="swiper js-swiper main-benefits-swiper" data-swiper-type="benefits">
+                    <div class="swiper-wrapper">
+                        <?php foreach ($benefits_slides as $slide) : ?>
+                            <div class="swiper-slide">
+                                <div class="main-benefits-swiper__slide">
+                                    <div class="row g-4 align-items-center">
+                                        <div class="col-lg-6">
+                                            <?php if (!empty($slide['image'])) : ?>
+                                                <?php
+                                                $benefit_image_id = is_array($slide['image']) && !empty($slide['image']['ID']) ? $slide['image']['ID'] : 0;
+                                                $benefit_image_alt = is_array($slide['image']) && !empty($slide['image']['alt']) ? $slide['image']['alt'] : '';
+                                                if ($benefit_image_id) {
+                                                    echo wp_get_attachment_image($benefit_image_id, 'large', false, ['class' => 'img-fluid rounded main-benefits-swiper__image', 'alt' => esc_attr($benefit_image_alt)]);
+                                                }
+                                                ?>
+                                            <?php endif; ?>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="main-benefits-swiper__content">
+                                                <?php if (!empty($slide['title'])) : ?>
+                                                    <h3 class="h4 mb-3"><?php echo wp_kses((string) $slide['title'], $heading_allowed_tags); ?></h3>
+                                                <?php endif; ?>
+                                                <?php if (!empty($slide['content'])) : ?>
+                                                    <div><?php echo wp_kses_post($slide['content']); ?></div>
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <div class="main-benefits-swiper__controls">
+                        <div class="swiper-button-prev" aria-label="Poprzedni slajd"></div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next" aria-label="Następny slajd"></div>
+                    </div>
+                </div>
+            <?php endif; ?>
+        </div>
+    </section>
+
     <!-- 3. Jak to działa -->
     <section class="mainpage-how py-5">
         <div class="container">
@@ -264,55 +314,6 @@ if (is_array($hero_bg) && !empty($hero_bg['url'])) {
                             <?php endif; ?>
                         </article>
                     <?php endforeach; ?>
-                </div>
-            <?php endif; ?>
-        </div>
-    </section>
-
-    <!-- 7. Co zyskujesz -->
-    <section class="mainpage-benefits py-5">
-        <div class="container">
-            <?php if ($benefits_title) : ?>
-                <h2 class="mainpage-section-title text-white font-secondary standard-title-5"><?php echo wp_kses((string) $benefits_title, $heading_allowed_tags); ?></h2>
-            <?php endif; ?>
-            <?php if ($benefits_slides) : ?>
-                <div class="swiper js-swiper main-benefits-swiper" data-swiper-type="benefits">
-                    <div class="swiper-wrapper">
-                        <?php foreach ($benefits_slides as $slide) : ?>
-                            <div class="swiper-slide">
-                                <div class="main-benefits-swiper__slide">
-                                    <div class="row g-4 align-items-center">
-                                        <div class="col-lg-6">
-                                            <?php if (!empty($slide['image'])) : ?>
-                                                <?php
-                                                $benefit_image_id = is_array($slide['image']) && !empty($slide['image']['ID']) ? $slide['image']['ID'] : 0;
-                                                $benefit_image_alt = is_array($slide['image']) && !empty($slide['image']['alt']) ? $slide['image']['alt'] : '';
-                                                if ($benefit_image_id) {
-                                                    echo wp_get_attachment_image($benefit_image_id, 'large', false, ['class' => 'img-fluid rounded main-benefits-swiper__image', 'alt' => esc_attr($benefit_image_alt)]);
-                                                }
-                                                ?>
-                                            <?php endif; ?>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="main-benefits-swiper__content">
-                                                <?php if (!empty($slide['title'])) : ?>
-                                                    <h3 class="h4 mb-3"><?php echo wp_kses((string) $slide['title'], $heading_allowed_tags); ?></h3>
-                                                <?php endif; ?>
-                                                <?php if (!empty($slide['content'])) : ?>
-                                                    <div><?php echo wp_kses_post($slide['content']); ?></div>
-                                                <?php endif; ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                    <div class="main-benefits-swiper__controls">
-                        <div class="swiper-button-prev" aria-label="Poprzedni slajd"></div>
-                        <div class="swiper-pagination"></div>
-                        <div class="swiper-button-next" aria-label="Następny slajd"></div>
-                    </div>
                 </div>
             <?php endif; ?>
         </div>
